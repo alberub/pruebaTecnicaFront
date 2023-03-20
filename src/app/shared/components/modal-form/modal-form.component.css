@@ -1,0 +1,249 @@
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    align-items: center;
+    padding: 10px;
+}
+
+.formulario span{
+    font-size: 14px;
+}
+
+.titulo__modal{
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.header__botones{
+    width: auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    color: white;
+}
+
+.header__boton i{
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header__boton i:hover{
+    color: black;
+    background-color: #FAFAFA;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.modal__form{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__descontinuado{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.input__descontinuado{
+    width: 16px;
+    height: 16px;
+}
+
+/* ======================================== */
+/* ======================================== */
+
+.form__articulo, .form__marca, .form__modelo, 
+.form__departamento, .form__clase, .form__familia{
+    width: 100%;
+    height: 40px;
+}
+
+.articulo, .marca, .modelo, .departamento, .clase, .familia{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.articulo__span, .marca__span, .modelo__span, 
+.departamento__span, .clase__span, .familia__span{
+    width: 120px;
+    font-size: 1rem;
+}
+
+.input__extendido, .select__extendido{
+    width: 350px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    padding: 0 5px;
+    height: 30px;
+}
+
+/* ======================================== */
+/* ======================================== */
+
+.form__cantidades, .form__fechas, .form__sku{
+    width: 470px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    /* border: 1px solid red; */
+}
+
+.stock, .alta{
+    position: relative;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sku{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cantidad, .baja{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stock__span, .alta__span, .sku__span{
+    width: 120px;
+}
+
+.input__corto{
+    width: calc(100% - 120px);
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    padding: 0 5px;
+    height: 30px;
+}
+
+/* ======================================== */
+/* ======================================== */
+
+.form__cta{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.boton__buscar, .boton__actualizar, .boton__eliminar, .boton__crear{
+    width: auto;
+    height: 30px;
+}
+
+.boton__buscar button{
+    width: max-content;
+    padding: 0 20px;
+    height: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.btnActualizar{
+    width: max-content;
+    padding: 0 20px;
+    height: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.btnEliminar{
+    width: max-content;
+    padding: 0 20px;
+    height: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+.btnCrear{
+    width: max-content;
+    padding: 0 20px;
+    height: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+.oculto{
+    visibility: hidden;
+}
+
+button:disabled{
+    background-color: #97929248;
+    cursor: not-allowed;
+}

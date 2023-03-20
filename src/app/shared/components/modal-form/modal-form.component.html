@@ -1,0 +1,142 @@
+<div class="modal">
+    <div class="modal__body">
+        <div class="modal__header">
+            <div class="header__titulo">
+                <span class="titulo__modal">Formulario</span>
+            </div>
+            <div class="header__botones">
+                <div class="header__boton">
+                    <i class="bi bi-dash-lg"></i>
+                </div>
+                <div class="header__boton">
+                    <i class="bi bi-files"></i>
+                </div>
+                <div class="header__boton">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal__form">
+            <form class="formulario" [formGroup]="formulario" (ngSubmit)="consultarProducto()">
+
+                <div class="form__sku">
+                    <div class="sku">
+                        <span class="sku__span">sku:</span>
+                        <input type="text" class="input__corto" placeholder="Introduce un sku" formControlName="sku" appSoloNumeros maxlength="6">
+                    </div>
+
+                    <div class="form__descontinuado">
+                        <input type="checkbox" class="input__descontinuado" formControlName="descontinuado" formControlName="descontinuado">
+                        <span class="descontinuado__span">Descontinuado</span>
+                    </div>
+                </div>
+                
+                <div class="mostrar__formulario">
+                    <div class="form__articulo">
+                        <div class="articulo">
+                            <span class="articulo__span">Artículo:</span>
+                            <input type="text" class="input__extendido" formControlName="articulo" maxlength="15">
+                        </div>
+                    </div>
+
+                    <div class="form__marca">
+                        <div class="marca">
+                            <span class="marca__span">Marca:</span>
+                            <input type="text" class="input__extendido" formControlName="marca" maxlength="15">
+                        </div>
+                    </div>
+
+                    <div class="form__modelo">
+                        <div class="modelo">
+                            <span class="modelo__span">Modelo:</span>
+                            <input type="text" class="input__extendido" formControlName="modelo" maxlength="20">
+                        </div>
+                    </div>
+
+                    <div class="form__departamento">
+                        <div class="departamento">
+                            <span class="departamento__span">Departamento:</span>
+                            <select class="select__extendido" formControlName="departamento" id="selector">
+                                <option *ngFor="let dep of consultaDepartamentoCmb$ | async" [value]="dep.numeroDepartamento" class="opt">
+                                    {{ dep.nombreDepartamento }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__clase">
+                        <div class="clase">
+                            <span class="clase__span">Clase:</span>
+                            <select class="select__extendido" formControlName="clase">
+                                <option *ngFor="let clase of cmbClase" [value]="clase.numeroClase">
+                                    {{ clase.nombreClase }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__familia">
+                        <div class="familia">
+                            <span class="familia__span">Familia:</span>
+                            <select class="select__extendido" formControlName="familia">
+                                <option *ngFor="let familia of cmbFamilia" [value]="familia.numeroFamilia">
+                                    {{ familia.nombreFamilia }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__cantidades">
+                        <div class="stock">
+                            <span class="stock__span">Stock:</span>
+                            <input type="number" class="input__corto" formControlName="stock" appSoloNumeros maxlength="9">
+                        </div>
+                        <div class="cantidad">
+                            <span class="cantidad__span">Cantidad:</span>
+                            <input type="number" class="input__corto" formControlName="cantidad" appSoloNumeros maxlength="9" max="12">
+                        </div>
+                    </div>
+
+                    <div class="form__fechas">
+                        <div class="alta">
+                            <span class="alta__span">Fecha alta:</span>
+                            <input type="date" class="input__corto" 
+                                formControlName="fechaAlta" 
+                                [ngModel]="fechaAlta | date:'yyyy-MM-dd'">
+                        </div>
+                        <div class="baja">
+                            <span class="baja__span">Fecha baja:</span>
+                            <input type="date" class="input__corto" 
+                                formControlName="fechaBaja"
+                                [ngModel]="fechaBaja | date:'yyyy-MM-dd'">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="boton__buscar" style="display: none;">
+                    <button type="submit">Buscar</button>
+                </div>                
+            </form>
+
+            <div class="form__cta">
+                <ng-container *ngIf="existeProducto">
+                    <div class="boton__actualizar">
+                        <button (click)="actualizarProducto()" class="btnActualizar" [disabled]="formulario.invalid">Actualizar</button>
+                    </div>                    
+                </ng-container>                                    
+                <ng-container *ngIf="existeProducto">                                            
+                    <div class="boton__eliminar">
+                        <button (click)="abirModalBorrar()" class="btnEliminar">Eliminar</button>
+                    </div>      
+                </ng-container>
+                <ng-container *ngIf="altaProducto">                        
+                    <div class="boton__crear">
+                        <button (click)="crearProducto()" class="btnCrear" [disabled]="formulario.invalid">Crear</button>
+                    </div>              
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
